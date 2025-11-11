@@ -3,6 +3,17 @@ from .InputFile import InputFile
 from .ICalculation import ICalculation
 
 class Calculation(ICalculation):
+    """Base class for all Calculations in NCRL
+    
+    Provides common functionality and defines the interface for all Calculation types.
+    
+    Inherit this class when implementing a new Calculation type. 
+    Ensure that the calculate() method is overridden to provide specific calculation logic.
+    
+    
+    
+    
+    """
     
     def __init__(self, inputFile : InputFile):
         
