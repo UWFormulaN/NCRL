@@ -62,6 +62,14 @@ class InputFile(ABC):
     def addStructure(self, structure: str = None, **args: dict[str, str]):
         self._structures.append(self.compile(structure, **args))
 
+    def addBlock(self, name: str, **args: dict[str, str]):
+        block = f"%{name} \n"
+        for key, value in args.items():
+            block += f"    {key} = {value} \n"
+        block += "END"
+
+        self._structures.append(block)
+
     def build(self) -> str:
 
         if self._header != "":
